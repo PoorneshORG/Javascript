@@ -98,6 +98,7 @@
     "test:workflow": "zizmor .github/workflows -v -p --min-severity=medium"
   },
   "devDependencies": {
+    "eslint": "^8.0.0",
     "@size-limit/file": "11.2.0",
     "@types/fs-extra": "11.0.4",
     "@types/minimist": "1.2.5",
