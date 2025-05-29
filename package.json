@@ -97,6 +97,14 @@
     "test:smoke:deno": "deno test ./test/smoke/deno.test.js --allow-read --allow-sys --allow-env --allow-run",
     "test:workflow": "zizmor .github/workflows -v -p --min-severity=medium"
   },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "node": true,
+      "es2021": true
+    },
+    "extends": "eslint:recommended"
+  },
   "devDependencies": {
     "eslint": "^8.0.0",
     "@size-limit/file": "11.2.0",
