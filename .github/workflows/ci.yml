@@ -1,23 +1,12 @@
-name: Multi-Job Pipeline
+name: Lint and Build
 
-on: push
+on: [push, pull_request]
 
 jobs:
-  lint:
+  lint-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: echo "Running linting..."
-
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: echo "Running tests..."
-
-  build:
-    runs-on: ubuntu-latest
-    needs: test
-    steps:
-      - uses: actions/checkout@v3
-      - run: echo "Building project..."
+      - uses: ./.github/actions/checkout-lint-build
+        with:
+          node-version: '20'
+      
