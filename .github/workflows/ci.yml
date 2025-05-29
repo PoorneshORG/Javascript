@@ -2,12 +2,25 @@ name: Lint and Build
 
 on: [push, pull_request]
 
+inputs:
+  node-version:
+    description: 'Node.js version to use'
+    required: false
+    default: '18'
+
 jobs:
   lint-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4 
-      - uses: ./.github/actions/composite
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-      
+          node-version: ${{ inputs.node-version }}
+          cache: 'npm'
+
+      - run: npm ci
+        shell: bash
+
+      - run: npm run lint
+        shell: bash
