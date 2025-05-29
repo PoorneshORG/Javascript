@@ -2,12 +2,6 @@ name: Lint and Build
 
 on: [push, pull_request]
 
-inputs:
-  node-version:
-    description: 'Node.js version to use'
-    required: false
-    default: '18'
-
 jobs:
   lint-build:
     runs-on: ubuntu-latest
