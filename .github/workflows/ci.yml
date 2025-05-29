@@ -6,7 +6,7 @@ jobs:
   lint-build:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/checkout-lint-build
+      - uses: ./.github/actions/composite
         with:
           node-version: '20'
       
