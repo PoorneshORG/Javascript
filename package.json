@@ -101,13 +101,60 @@
     "env": {
       "browser": true,
       "node": true,
-      "es2021": true
+      "es2021": true,
+      "jest": true,
+      "mocha": true,
+      "jquery": true,
+      "deno": true
+    },
+    "globals": {
+      "$": "readonly",
+      "cd": "readonly",
+      "within": "readonly",
+      "usePowerShell": "readonly",
+      "usePwsh": "readonly",
+      "path": "readonly",
+      "which": "readonly",
+      "Deno": "readonly",
+      "log": "readonly",
+      "env": "readonly"
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-      "ecmaVersion": 12,
+      "ecmaVersion": 2021,
       "sourceType": "module"
-    }
+    },
+    "rules": {
+      "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+      "no-undef": "error",
+      "no-empty-pattern": "error",
+      "no-empty": ["error", { "allowEmptyCatch": true }],
+      "no-extra-semi": "error"
+    },
+    "overrides": [
+      {
+        "files": ["test/**/*.js", "test/**/*.ts"],
+        "env": {
+          "jest": true,
+          "node": true,
+          "browser": true
+        },
+        "globals": {
+          "$": "readonly",
+          "cd": "readonly",
+          "within": "readonly",
+          "usePowerShell": "readonly",
+          "usePwsh": "readonly",
+          "path": "readonly",
+          "which": "readonly",
+          "Deno": "readonly"
+        },
+        "rules": {
+          "no-unused-vars": "off",
+          "no-undef": "off"
+        }
+      }
+    ]
   },
   "devDependencies": {
     "eslint": "^8.0.0",
@@ -152,37 +199,6 @@
     "yaml": "2.7.1",
     "zurk": "0.11.2"
   },
-  "overrides": {
-    "globby": {
-      "fast-glob": "3.3.3"
-    },
-    "tsx": {
-      "esbuild": "$esbuild"
-    },
-    "vite": {
-      "esbuild": "$esbuild"
-    },
-    "@webpod/ps": {
-      "zurk": "$zurk"
-    }
-  },
-  "publishConfig": {
-    "registry": "https://wombat-dressing-room.appspot.com"
-  },
-  "keywords": [
-    "shell",
-    "script",
-    "bash",
-    "bin",
-    "binary",
-    "child",
-    "process",
-    "exec",
-    "execute",
-    "invoke",
-    "call",
-    "spawn"
-  ],
   "prettier": {
     "semi": false,
     "singleQuote": true,
