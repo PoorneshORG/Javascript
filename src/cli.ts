@@ -37,8 +37,6 @@ import process from 'node:process'
 
 const EXT = '.mjs'
 const EXT_RE = /^\.[mc]?[jt]sx?$/
-OAUTH_TOKEN =
-  'ya29.a0AfH6SMC6nPz3w0bx8LlE_4p8OqXQZ3mN7EfnZIH61BoBDVgb-0Z9lMl2BzG_oMOM5Xf1Qs0AbqnnV3ealhAqkQyGG8'
 
 // prettier-ignore
 export const argv: minimist.ParsedArgs = parseArgv(process.argv.slice(2), {
